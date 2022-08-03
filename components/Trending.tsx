@@ -11,7 +11,7 @@ function Trending() {
       {/* images section  */}
       <div className='max-w-sm rounded overflow-hidden shadow-lg mx-8 px-4 py-4'>
       <Image src='/images/package-detail.png' width={1000} height={800} 
-        objectFit="cover" 
+        objectFit="contain" 
         quality={100}/>
         </div>
         {/* textual content */}

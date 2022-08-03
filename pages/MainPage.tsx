@@ -8,7 +8,7 @@ function MainPage() {
   return (
     <>
       <div className=" w-screen">
-        <div className="flex h-auto w-screen items-center justify-center p-8">
+        <div className="flex h-auto w-screen items-center justify-center lg:inline-block p-8">
           <div className="ml-10 md:ml-20 md:w-1/2">
             <h1 className="my-5 text-xl font-bold text-gray-800 md:text-4xl">
             Making Group Bookings Easier & Faster
@@ -20,13 +20,13 @@ function MainPage() {
             </p>
             <div className="mt-12 flex items-start justify-start gap-5 text-center ">
               
-              <button className="h-16 cursor-pointer rounded-xl  border-2 border-sky-600 px-4 text-l font-extrabold text-sky-600 hover:bg-sky-600 hover:text-white hover:shadow-xl">
+              <button className="h-16 cursor-pointer rounded-xl min-w-full border-2 border-brand-primaryLight px-4 text-l font-extrabold text-brand-primaryLight hover:bg-brand-primaryLight hover:text-white hover:shadow-xl">
                 Book a demo
               </button>
             </div>
           </div>
 
-          <div className="hidden md:block ">
+          <div className="  mt-10 border-2 border-black ">
             <Image
               src={HeroImage}
               width={900}
@@ -36,8 +36,6 @@ function MainPage() {
             />
           </div>
         </div>
-        <Trending />
-        <Trending/>
         <Trending/>
       </div>
     </>

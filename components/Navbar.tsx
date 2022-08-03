@@ -1,8 +1,10 @@
-import { Disclosure } from '@headlessui/react'
+import { Disclosure, Popover } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import Image from 'next/image'
+import Link from 'next/link'
+
 const navigation = [
-  { name: 'Why Grouple?', href: '#', current: true },
+  { name: 'Why Grouple?', href: '#', current: false },
   { name: 'Tools', href: '#', current: false },
   { name: 'Pricing', href: '#', current: false },
 ]
@@ -13,29 +15,29 @@ function classNames(...classes: string[]) {
 
 export default function Navbar() {
   return (
-
-    <Disclosure as="nav" className="bg-white ">
+    <div className='mt-4'>
+    <Disclosure as="nav" className="">
       {({ open }) => (
         <>
-          <div className="min-w-7xl mx-auto border-b border-gray-50 bg-white px-2 sm:px-6 lg:px-2">
-            <div className="relative mx-0 flex h-16 items-center justify-between md:mx-20">
-              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+          <div className="min-w-7xl  mx-auto  border-b border-gray-50 bg-brand-background px-2 sm:px-6 lg:px-2">
+            <div className='mx-0 flex h-16 items-center bg-white justify-between  rounded-full '>
+              <div className="md:absolute md:inset-y-0 md:left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button className="inline-flex items-center ml-3 justify-center rounded-full p-2 text-gray-400 hover:bg-brand-primaryLight hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
-                    <XIcon className="block h-6 w-6" aria-hidden="true" />
+                    <XIcon className="block h-8 w-8" aria-hidden="true" />
                   ) : (
-                    <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+                    <MenuIcon className="block h-8 w-8" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+              <div className="flex flex-1 items-center justify-center sm:items-stretch  sm:justify-start">
                 <div className="flex flex-shrink-0 justify-start items-start">
                   <Image src='/images/Grouple.png' alt="Grouple"
         quality={100} width={150} height={80}/>
                   {/* <h1 className="cursor-pointer text-xl font-semibold ">
-                    Travel<span className="text-blue-500">in</span>
+                    Travel<span className="text-brand-primaryLight">in</span>
                   </h1> */}
                 </div>
                 
@@ -48,19 +50,29 @@ export default function Navbar() {
                         href={item.href}
                         className={classNames(
                           item.current
-                            ? 'bg-blue-600 text-white shadow-lg'
-                            : 'text-gray-300 hover:bg-blue-500 hover:text-white hover:shadow-lg',
+                            ? 'bg-brand-primaryLight text-white shadow-lg'
+                            : 'text-gray-300 hover:bg-brand-primaryLight hover:text-white hover:shadow-lg',
                           'flex items-center rounded-md px-3 py-2 text-sm font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
-                        {item.name}
+                        <Popover className="relative">
+                          <Popover.Button>{item.name}</Popover.Button>
+
+                          <Popover.Panel className="">
+                            <div className="grid grid-cols-2 ">
+                              <Link href="/analytics">Analytics</Link>
+                              <Link href="/analytics">Analytics</Link>
+                              <Link href="/analytics">Analytics</Link>
+                            </div>
+                          </Popover.Panel>
+                        </Popover>
                       </a>
                     ))}
                   </div>
                 </div>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button className="rounded-md border-2 border-blue-600 px-3 py-2 text-sm font-medium text-blue-500 hover:bg-blue-500 hover:text-white  hover:shadow-lg">
+              <div className="lg:relative  flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <button className="rounded-full border-2 border-brand-primaryLight px-6 py-3 text-sm font-medium text-brand-primaryLight hover:bg-brand-primaryLight hover:text-white mr-1 hover:shadow-lg">
                   Register
                 </button>
               </div>
@@ -76,8 +88,8 @@ export default function Navbar() {
                   href={item.href}
                   className={classNames(
                     item.current
-                      ? 'bg-blue-500 text-white shadow-lg'
-                      : 'text-gray-300 hover:bg-blue-500 hover:text-white hover:shadow-lg',
+                      ? 'bg-brand-primaryLight text-white shadow-lg'
+                      : 'text-gray-300 hover:bg-brand-primaryLight hover:text-white hover:shadow-lg',
                     'block rounded-md px-3 py-2 text-base font-medium'
                   )}
                   aria-current={item.current ? 'page' : undefined}
@@ -90,5 +102,6 @@ export default function Navbar() {
         </>
       )}
     </Disclosure>
+    </div>
   )
 }
