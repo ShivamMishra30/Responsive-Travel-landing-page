@@ -15,12 +15,12 @@ function classNames(...classes: string[]) {
 
 export default function Navbar() {
   return (
-    <div className='mt-4'>
+    <div className='mt-4 shadow-sm fixed w-full z-10'>
     <Disclosure as="nav" className="">
       {({ open }) => (
         <>
-          <div className="min-w-7xl  mx-auto  border-b border-gray-50 bg-brand-background px-2 sm:px-6 lg:px-2">
-            <div className='mx-0 flex h-16 items-center bg-white justify-between  rounded-full '>
+          <div className="mx-auto  border-b border-gray-50 bg-brand-background px-2 sm:px-6">
+            <div className='xl:mx-16 md:mx-10   flex h-16 xl:h-28 items-center bg-white justify-between  rounded-full px-3 '>
               <div className="md:absolute md:inset-y-0 md:left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="inline-flex items-center ml-3 justify-center rounded-full p-2 text-gray-400 hover:bg-brand-primaryLight hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
@@ -33,7 +33,7 @@ export default function Navbar() {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch  sm:justify-start">
-                <div className="flex flex-shrink-0 justify-start items-start">
+                <div className="flex flex-shrink-0 justify-start  items-start">
                   <Image src='/images/Grouple.png' alt="Grouple"
         quality={100} width={150} height={80}/>
                   {/* <h1 className="cursor-pointer text-xl font-semibold ">
@@ -52,7 +52,7 @@ export default function Navbar() {
                           item.current
                             ? 'bg-brand-primaryLight text-white shadow-lg'
                             : 'text-gray-300 hover:bg-brand-primaryLight hover:text-white hover:shadow-lg',
-                          'flex items-center rounded-md px-3 py-2 text-sm font-medium'
+                          'flex items-center rounded-md px-3 py-2 xl:px-6 xl:py-3 xl:text-lg  text-sm font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
@@ -72,7 +72,7 @@ export default function Navbar() {
                   </div>
                 </div>
               <div className="lg:relative  flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button className="rounded-full border-2 border-brand-primaryLight px-6 py-3 text-sm font-medium text-brand-primaryLight hover:bg-brand-primaryLight hover:text-white mr-1 hover:shadow-lg">
+                <button className="rounded-full border-2 border-brand-primaryLight px-6 py-3 xl:px-10 xl:py-6 xl:text-2xl text-md font-medium text-brand-primaryLight hover:bg-brand-primaryLight hover:text-white mr-1 hover:shadow-lg">
                   Register
                 </button>
               </div>
