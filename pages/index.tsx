@@ -8,25 +8,30 @@ import Destination from './destination'
 import Notify from '../components/Notify'
 import Footer from '../components/Footer'
 import Achievement from '../components/Achievement'
+import Trending from '../components/Trending';
+import Features from '../components/Features'
 const Home: NextPage = () => {
   return (
-    <>
-      <Head>
+      
+      
+      <html className='bg-brand-background '>
+        <Head>
         <title>Responsive Travel Website</title>
         <link rel="icon" href="/pro.ico" />
       </Head>
-      <body className='bg-brand-background mt-4 h-full'>
-        <Navbar />
+        <Navbar/>
+        
+        <MainPage />
+        <Trending/>
+        <Features/>
+        <Services />
+        <Destination />
+        <Marquee><Achievement/></Marquee>
+        <Notify />
+        {/* <ContactPage/> */}
+        <Footer />
+    </html>
 
-      <MainPage />
-      <Services />
-      <Destination />
-      <Marquee><Achievement/></Marquee>
-      <Notify />
-      {/* <ContactPage/> */}
-      <Footer />
-    </body>
-    </>
   )
 }
 
