@@ -11,7 +11,11 @@ module.exports = {
 					primaryLight: '#4A6AFE',
           background: '#f3f3f1'
 				},
+        
 			},
+      boxShadow: {
+        '3xl': '10px 13px 0px -2px rgba(74,106,254,0.99)'
+      }
     },
     
   },

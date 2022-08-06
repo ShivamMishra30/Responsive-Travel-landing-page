@@ -5,9 +5,9 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 const navigation = [
-  { name: 'Why Grouple?', href: '#', current: false },
-  { name: 'Tools', href: '#', current: false },
-  { name: 'Pricing', href: '#', current: false },
+  { href: '/features', name: 'Why Grouple?', current: false, disable: true },
+  { href: '/tools', name: 'Tools', current: false, disable: true },
+  { href: '/pricing', name: 'Pricing', current: false },
 ]
 
 function classNames(...classes) {
@@ -48,45 +48,40 @@ export default function Navbar() {
               </div>
               <div className="hidden sm:ml-6 sm:block md:ml-60">
                   <div className="flex  whitespace-nowrap space-x-4">
-                    {navigation.map((item) => (
+                    {navigation.map(({name, href, current}) => (
+                      <Link 
+                      href={href} passHref>
                       <a
-                        key={item.name}
-                        href={item.href}
+                        
                         className={classNames(
-                          item.current
+                          current
                             ? 'bg-brand-primaryLight text-white shadow-lg'
                             : 'text-brand-primaryLight hover:bg-brand-primaryLight hover:text-white hover:shadow-lg',
                           'flex items-center rounded-md px-3 py-2 xl:px-6 xl:py-3 xl:text-lg  text-sm font-medium'
                         )}
-                        aria-current={item.current ? 'page' : undefined}
-                      >
-                        <Popover className="relative">
-                          <Popover.Button>{item.name}</Popover.Button>
+                        aria-current={current ? 'page' : undefined}
+                      >{name}
 
-                          <Popover.Panel className="">
-                            <div className="grid grid-cols-2 ">
-                              <Link href="/analytics">Analytics</Link>
-                              <Link href="/analytics">Analytics</Link>
-                              <Link href="/analytics">Analytics</Link>
-                            </div>
-                          </Popover.Panel>
-                        </Popover>
                       </a>
+                      
+                    </Link>
                     ))}
                   </div>
                 </div>
               <div className="lg:relative  flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <a href="/" className="relative inline-block text-lg group">
+                <Link href="/form" passHref>
+                <a  className="relative inline-block text-lg group">
                     
                     <span className="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-brand-primaryLight transition-colors duration-300 ease-out border-2 border-brand-primaryLight rounded-full group-hover:text-white">
 
                       <span className="absolute inset-0 w-full h-full px-5 py-3 rounded-full bg-white"></span>
-                      <span className="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-brand-primaryLight group-hover:-rotate-180 ease"></span>
-                      <span className="relative">Register</span>
+                      <span className="absolute left-0 w-48 xl:w-52 xl:h-52 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-brand-primaryLight group-hover:-rotate-180 ease"></span>
+                      <span className="relative xl:text-2xl">Register</span>
                     </span>
                     <span className="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-brand-primaryLight rounded-full group-hover:mb-0 group-hover:mr-0" data-rounded="rounded-full"></span>
                     
                 </a>
+                </Link>
               </div>
             </div>
           </div>

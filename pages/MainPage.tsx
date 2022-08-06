@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from "next/link"
 
 function MainPage() {
   return (
@@ -26,7 +27,10 @@ function MainPage() {
                 some nice weather even when you're not on vacation.
               </p>
               <div className="mt-4 sm:mt-6 flex justify-center items-center md:grow">
-                <a href="/" className="relative inline-block text-lg group">
+                <Link
+                  href="https://calendly.com/shivamdhruvmishra4/demo" passHref
+                >
+                  <a className="relative inline-block text-lg group">
                     
                     <span className="relative z-10 block px-24 py-3 overflow-hidden font-medium leading-tight text-brand-primaryLight transition-colors duration-300 ease-out border-2 border-brand-primaryLight rounded-full group-hover:text-white">
 
@@ -37,6 +41,7 @@ function MainPage() {
                     <span className="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-brand-primaryLight rounded-full group-hover:mb-0 group-hover:mr-0" data-rounded="rounded-full"></span>
                     
                 </a>
+                </Link>
               </div>
             </div>
             
